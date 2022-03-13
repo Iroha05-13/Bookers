@@ -1,4 +1,4 @@
-<%= flash[:notice] %>
+<p id="notice"><%= flash[:notice] %></p>
 
 <h1>Books</h1>
 
@@ -30,11 +30,16 @@
 
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
 
-<p>Title</p>
-<%= f.text_field :title %>
+<div class="field">
+    <label for=book-title>Title</label>
+    <%= f.text_field :title %>
+</div>
 
-<p>Body</p>
-<%= f.text_area :body %>
+<div class="field">
+    <label for=book-body>Body</label>
+    <%= f.text_area :body %>
+</div>
 
-<%= f.submit 'Create Book' %>
+<div class="action"><%= f.submit 'Create Book' %></div>
+
 <% end %>
